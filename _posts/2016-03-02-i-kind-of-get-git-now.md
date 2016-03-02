@@ -131,8 +131,8 @@ There are lots of ways to roll back changes using github. These methods range fr
  * git commit -m “Said goodbye.”
  * git push github demo
 * But wait! You didn’t want to say goodbye. You need to roll back to a previous commit. 
-* List your last 3 commits with this command:  git log \-3 | cat
- * The “git log” lists your commits. The “-3” tells git to only list the last three. the “ | cat” tells git not to use vi to scroll through the commits. Instead, it will just spit them all out relatively instantaneously.
+* List your last 3 commits with this command:  git log \-3 \| cat
+ * The “git log” lists your commits. The “-3” tells git to only list the last three. the “ \| cat” tells git not to use vi to scroll through the commits. Instead, it will just spit them all out relatively instantaneously.
  * If you want to set \| cat as the default so you don’t have to type it all the time, use this command to set the global:  git config \-\-global core.pager cat
 * There are a lot of global defaults you can set in git. Check the documentation on how to do this.
 * Type:  git revert \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# \-\-no-edit
