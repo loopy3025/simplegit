@@ -27,14 +27,14 @@ git is set up in repositories. Whether these repositories are local or remote is
 * Create or navigate to the folder in which you would like to create a git repository. If you know you will be pulling a repository (repo) from a remote location, feel free to leave the folder empty.
 * Open command line and navigate to your folder. Tab to autocomplete
 * Type:  git init  
-* You should get a message saying the repo was initialized.
+ * You should get a message saying the repo was initialized.
 * Type:  dir 
-* You shouldn’t see anything.
+ * You shouldn’t see anything.
 * Open the folder using the normal Windows GUI (Windows Explorer).
-* You should see a folder called .git which is a hidden folder. This is where all the files full of your settings and different versions of your files are located. Do not touch this folder.
-* If this is a new repository for a new project, you may want to consider a .gitignore file. This file will tell git to ignore certain files or folders in a project. Good examples of a files to ignore are .htaccess or settings.php. Basically, anything pertaining to a specific server should be avoided. For Drupal sites, it also may be a good idea to ignore entire folders, such as those devoted to content (documents and such). [https://git-scm.com/docs/gitignore](https://git-scm.com/docs/gitignore)
+ * You should see a folder called .git which is a hidden folder. This is where all the files full of your settings and different versions of your files are located. Do not touch this folder.
+ * If this is a new repository for a new project, you may want to consider a .gitignore file. This file will tell git to ignore certain files or folders in a project. Good examples of a files to ignore are .htaccess or settings.php. Basically, anything pertaining to a specific server should be avoided. For Drupal sites, it also may be a good idea to ignore entire folders, such as those devoted to content (documents and such). [https://git-scm.com/docs/gitignore](https://git-scm.com/docs/gitignore)
 * Type:  git status
-* You should get a response telling you that you’re on the master branch. We’ll discuss Branches later.
+ * You should get a response telling you that you’re on the master branch. We’ll discuss Branches later.
 
 #### Connecting To a Remote Repository
 
@@ -42,11 +42,10 @@ git is set up in repositories. Whether these repositories are local or remote is
   * Nothing should show.
 * Get the URL for your remote repository. A vendor should supply any URLs you need and also provide you with credentials for accessing the files. On Github, a repository’s URL can be found on the main repo page. 
   * Example:  [https://github.com/ny/opwdd.ny.gov](https://github.com/ny/opwdd.ny.gov)
-* To create a connection to the example Repo, we would type:  
-* git remote github https://github.com/ny/opwdd.ny.gov.git
-* The “github” portion of the command just gives a name to this connection, which can be used any time after it has been created. We could have called it “Marvin” or “poop” if we wanted.
+* To create a connection to the example Repo, we would type: git remote github https://github.com/ny/opwdd.ny.gov.git
+ * The “github” portion of the command just gives a name to this connection, which can be used any time after it has been created. We could have called it “Marvin” or “poop” if we wanted.
 * Type: git remote
-* You should see the remote connection in there. This means a repo can have multiple remote connections. This allows you to disseminate your repo anywhere you want, whether with Github, Acquia, or anywhre that accepts git repos.
+ * You should see the remote connection in there. This means a repo can have multiple remote connections. This allows you to disseminate your repo anywhere you want, whether with Github, Acquia, or anywhre that accepts git repos.
 * Type:  git pull github master
   * This tells git to pull all the files at your github location, but from the branch called “master”.
   * You will be prompted for your username and password. 
@@ -58,56 +57,56 @@ git is set up in repositories. Whether these repositories are local or remote is
 
 #### Working With Git 
 
-Go back to your command line interface. Type: git checkout -b demo
-The “-b” is a parameter. Most commands have different parameters which are detailed in the git documentation.
-Cmder will show you are in a new branch. You can also type git status
-Completely close out your command window.
-Open a new command window and navigate to your repo’s folder.
-You will note that the branch you are in persists even when the window is closed.
-Navigate to your folder in Windows Explorer and create a new folder called “demo_yourname” where “yourname” is your first name. Then, inside that folder, create a text file called “demo.txt”
-In that text file, write “Hello world!”
-In your command line, type:  git status
-You will note that your new folder has been detected by git as something with changes. These files are NOT being tracked as an actual change, though. It will not automatically do this.
-In this way, you can ignore changes in other parts of your project while focusing on changes in other sections.
-Type:  git diff HEAD
-You will see no changes listed.
-Type:  git add .
-The “.” tells git to add all changes. You could have also typed:
-git add demo_yourname
-In cmder, note that the branch name has turned red, denoting that there are changes on the branch. git status will tell you what has changed.
-Type:  git diff HEAD
-You will see your changes printed and it will look like a patch file
-It is actually possible to use the diff command to output actual patch files using different options
-Type:  git commit -m “Initial creation of my demo file.”
-The text inside the quotes can be anything you want describing the work you did.
-Type: git checkout master
-You are now on the master branch
-Type:  dir
-The /demo_yourname folder should be gone.  This is because we have switched to the master branch which has none of the changes we made on the demo branch.
-Type: git checkout demo
-The /demo_yourname folder should have returned.
-Type: git checkout master one more time.
-Type: git merge demo
-This takes all the committed changes from your demo branch and makes them to the files on the master branch.
-Type:  dir
-You should see your files now. Master and demo should now be identical.
-Type: git checkout demo
-In your demo.txt file, add another line, perhaps “Hello to you too!”
-In your command line, type these commands, noting what happens each time:
-git status 
-git add .
-git diff HEAD
-git commit -m “Added a line to the demo.txt”
-You wouldn’t normally commit after every little change, of course. This is just for demonstration.
-git checkout master
-Note that, in your text editor, the line you added to demo.txt has probably been removed!
-git merge demo
-And it probably has now returned, because you merged the changes from the demo branch.
+This section describes making some simple changes to a file and how branches manage these changes.
 
+* Go back to your command line interface. Type: git checkout -b demo
+ * The “-b” is a parameter. Most commands have different parameters which are detailed in the git documentation.
+ * Cmder will show you are in a new branch. You can also type git status
+* Completely close out your command window and then open a new command window. Navigate to your repo’s folder.
+ * We did this so you can note that the branch you are in persists even when the window is closed. Almost everything you do is a state that is saved somewhere in the git directory.
+* Navigate to your folder in Windows Explorer and create a new folder called “demo_yourname” where “yourname” is your first name. Then, inside that folder, create a text file called “demo.txt”
+* In that text file, write “Hello world!”
+* In your command line, type:  git status
+ * You will note that your new folder has been detected by git as something with changes. These files are NOT being tracked as an actual change, though. It will not automatically do this.
+`* In this way, you can ignore changes in other parts of your project while focusing on changes in other sections.
+* Type:  git diff HEAD
+ * You will see no changes listed.
+* Type:  git add .
+ * The “.” tells git to add all changes. You could have also typed:  git add demo_yourname
+* In cmder, note that the branch name has turned red, denoting that there are changes on the branch. git status will tell you what has changed.
+* Type:  git diff HEAD
+ * You will see your changes printed and it will look like a patch file
+ * It is actually possible to use the diff command to output actual patch files using different options
+* Type:  git commit -m “Initial creation of my demo file.”
+ * The text inside the quotes can be anything you want describing the work you did.
+* Type: git checkout master
+ * You are now on the master branch
+* Type:  dir
+ * The /demo_yourname folder should be gone.  This is because we have switched to the master branch which has none of the changes we made on the demo branch.
+* Type: git checkout demo
+ * The /demo_yourname folder should have returned.
+* Type: git checkout master one more time.
+* Type: git merge demo
+ * This takes all the committed changes from your demo branch and makes them to the files on the master branch.
+* Type:  dir
+ * You should see your files now. Master and demo should now be identical.
+* Type: git checkout demo
+* In your demo.txt file, add another line, perhaps “Hello to you too!”
+* In your command line, type these commands, noting what happens each time:
+ * git status 
+ * git add .
+ * git diff HEAD
+ * git commit -m “Added a line to the demo.txt”
+ * You wouldn’t normally commit after every little change, of course. This is just for demonstration.
+ * git checkout master
+  * Note that, in your text editor, the line you added to demo.txt has probably been removed!
+ * git merge demo
+  * And it probably has now returned, because you merged the changes from the demo branch.
 
+#### Working with the Remote
 
-Working with the Remote
 You’ll eventually want to push your changes to a remote repository, whether it’s in the ITS github or Acquia. When you do your push, you do so by name.
+
 Navigate to the remote repository on the Github website. You will see that your demo folder is not up there. Example: https://github.com/ny/opwdd.ny.gov 
 In git, checkout the demo branch:  git checkout demo
 Type:  git push github HEAD
