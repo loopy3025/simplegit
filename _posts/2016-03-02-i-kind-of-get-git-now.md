@@ -25,14 +25,14 @@ git is set up in repositories. Whether these repositories are local or remote is
 * Create or navigate to the folder in which you would like to create a git repository. If you know you will be pulling a repository (repo) from a remote location, feel free to leave the folder empty.
 * Open command line and navigate to your folder. Tab to autocomplete
 * Type:  git init  
- * You should get a message saying the repo was initialized.
+  * You should get a message saying the repo was initialized.
 * Type:  dir 
- * You shouldn’t see anything.
+  * You shouldn’t see anything.
 * Open the folder using the normal Windows GUI (Windows Explorer).
- * You should see a folder called .git which is a hidden folder. This is where all the files full of your settings and different versions of your files are located. Do not touch this folder.
- * If this is a new repository for a new project, you may want to consider a .gitignore file. This file will tell git to ignore certain files or folders in a project. Good examples of a files to ignore are .htaccess or settings.php. Basically, anything pertaining to a specific server should be avoided. For Drupal sites, it also may be a good idea to ignore entire folders, such as those devoted to content (documents and such). [https://git-scm.com/docs/gitignore](https://git-scm.com/docs/gitignore)
+  * You should see a folder called .git which is a hidden folder. This is where all the files full of your settings and different versions of your files are located. Do not touch this folder.
+  * If this is a new repository for a new project, you may want to consider a .gitignore file. This file will tell git to ignore certain files or folders in a project. Good examples of a files to ignore are .htaccess or settings.php. Basically, anything pertaining to a specific server should be avoided. For Drupal sites, it also may be a good idea to ignore entire folders, such as those devoted to content (documents and such). [https://git-scm.com/docs/gitignore](https://git-scm.com/docs/gitignore)
 * Type:  git status
- * You should get a response telling you that you’re on the master branch. We’ll discuss Branches later.
+  * You should get a response telling you that you’re on the master branch. We’ll discuss Branches later.
 
 #### Connecting To a Remote Repository
 
