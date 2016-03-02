@@ -131,12 +131,12 @@ There are lots of ways to roll back changes using github. These methods range fr
  * git commit -m “Said goodbye.”
  * git push github demo
 * But wait! You didn’t want to say goodbye. You need to roll back to a previous commit. 
-* List your last 3 commits with this command:  git log -3 | cat
+* List your last 3 commits with this command:  git log \-3 | cat
  * The “git log” lists your commits. The “-3” tells git to only list the last three. the “ | cat” tells git not to use vi to scroll through the commits. Instead, it will just spit them all out relatively instantaneously.
- * If you want to set | cat as the default so you don’t have to type it all the time, use this command to set the global:  git config --global core.pager cat
+ * If you want to set \| cat as the default so you don’t have to type it all the time, use this command to set the global:  git config \-\-global core.pager cat
 * There are a lot of global defaults you can set in git. Check the documentation on how to do this.
-* Type:  git revert \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# --no-edit
- * The \# represents the commit number from your log that you’d like to get rid of. The “--no-edit” spares us going into vim to edit a message. You may wish to set a different text editor for such things, or learn vim. -_-
+* Type:  git revert \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# \-\-no-edit
+ * The \# represents the commit number from your log that you’d like to get rid of. The “\-\-no-edit” spares us going into vim to edit a message. You may wish to set a different text editor for such things, or learn vim. \-\_\-
  * You don’t have to put the full \#. The editor will know what to do if you give the first few numbers.
  * If you are using cmdr, you can select the text with your left mouse button and dragging. Then, if you right-click, the text will insert automatically wherever your cursor is. You don’t use ctrl+c and ctrl+v in cmder.
  * If you want, you can check your log for the revert commit and actually revert the revert.
