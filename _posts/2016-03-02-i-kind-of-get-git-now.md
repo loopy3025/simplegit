@@ -12,11 +12,9 @@ I know for a fact that there are other tutorials which are both more concise and
 
 You can download git piecemeal or you can download a third party command line tool with git included. 
 
-git:
-[https://git-scm.com/downloads](https://git-scm.com/downloads)
+**git:**  [https://git-scm.com/downloads](https://git-scm.com/downloads)
 
-cmder:
-[http://cmder.net/](http://cmder.net/)
+**cmder:**  [http://cmder.net/](http://cmder.net/)
 
 With cmder, be sure to include git in the package by selecting the full install. For both git and cmder, there are extensive documentation you can use to find commands you need to do your work. There are GUI options for git. I do not use these, so their use would have to be self-taught for now.
 
@@ -107,53 +105,58 @@ This section describes making some simple changes to a file and how branches man
 
 You’ll eventually want to push your changes to a remote repository, whether it’s in the ITS github or Acquia. When you do your push, you do so by name.
 
-Navigate to the remote repository on the Github website. You will see that your demo folder is not up there. Example: https://github.com/ny/opwdd.ny.gov 
-In git, checkout the demo branch:  git checkout demo
-Type:  git push github HEAD
-This will push all the changes in your current branch whatever it is.
-You could push a specific branch by putting that branch’s name in place of “HEAD”.
-Check the remote repository again in your browser. 
-Click the branches drop-down and select the demo branch.
-You will see the files listed change, adding your demo folder. If you switch back to master, you will not see it because you did not push master.
-In git, switch to the master branch:   git checkout master
-Type:  git push
-You will get an error. 
-Type the command git suggests: git push --set-upstream github master
-You will be asked for your credentials.
-Now refresh the master branch list in github. Your demo folder should be visible.
+* Navigate to the remote repository on the Github website. You will see that your demo folder is not up there. Example: https://github.com/ny/opwdd.ny.gov 
+* In git, checkout the demo branch:  git checkout demo
+* Type:  git push github HEAD
+ * This will push all the changes in your current branch whatever it is.
+ * You could push a specific branch by putting that branch’s name in place of “HEAD”.
+* Check the remote repository again in your browser. 
+* Click the "branches" drop-down and select the demo branch.
+* You will see the files listed change, adding your demo folder. If you switch back to master, you will not see it because you did not push master.
+* In git, switch to the master branch:   git checkout master
+* Type:  git push
+ * You will get an error. 
+* Type the command git suggests: git push --set-upstream github master
+ * You will be asked for your credentials.
+* Now refresh the master branch list in github. Your demo folder should be visible.
 
+#### Rolling Back
 
-Rolling Back
-In command line, checkout demo again and commit another change with a third line to your document, “Goodbye!” Make the commit message “Said goodbye.”
-git checkout demo
-Add line to document
-git add .
-git commit -m “Said goodbye.”
-git push github demo
-But wait! You didn’t want to say goodbye. You need to roll back to a previous commit. 
-List your last 3 commits with this command:  git log -3 | cat
-The “git log” lists your commits. The “-3” tells git to only list the last three. the “ | cat” tells git not to use vi to scroll through the commits. Instead, it will just spit them all out relatively instantaneously.
-If you want to set | cat as the default so you don’t have to type it all the time, use this command to set the global:
-git config --global core.pager cat
-There are a lot of global defaults you can set in git. Check the documentation on how to do this.
-Type:  git revert ##################################### --no-edit
-The # represents the commit number from your log that you’d like to get rid of. The “--no-edit” spares us going into vim to edit a message. You may wish to set a different text editor for such things, or learn vim. -_-
-You don’t have to put the full #. The editor will know what to do if you give the first few numbers.
-If you are using cmdr, you can select the text with your left mouse button and dragging. Then, if you right-click, the text will insert automatically wherever your cursor is. You don’t use ctrl+c and ctrl+v in cmder.
-If you want, you can check your log for the revert commit and actually revert the revert.
-There are LOTS of ways to roll back changes, some of them VERY complicated. I haven’t even come close to mastering this stuff yet.
-Merge your changes with master
-git checkout master
-git merge demo
+There are lots of ways to roll back changes using github. These methods range from the simple to the soul-crushingly complicated. We can focus on a couple of them here, but the [git documentation](https://git-scm.com/documentation) and [stack overflow](http://stackoverflow.com/questions/tagged/git) are a big help in case you ever need to do anything very difficult.
 
-Deleting Files
-Time to get rid of our demo folder. We don’t want that hanging around in the repo.
-Type: git checkout demo
-Go into windows explorer and delete the demo folder.
-Type: git status
-Git should tell you that a file has been deleted
-Type: git rm demo_yourname -r
-Where “demo_yourname” is the name of your demo folder.
-This stages the folder for deletion
-There are lots of shortcuts for adding and removing files. Check out the documentation for more info.
-Commit and push. Now you can see the difference between master  and 
+* In command line, checkout demo again and commit another change with a third line to your document, “Goodbye!” Make the commit message “Said goodbye.”
+ * git checkout demo
+ * Add line to document
+ * git add .
+ * git commit -m “Said goodbye.”
+ * git push github demo
+* But wait! You didn’t want to say goodbye. You need to roll back to a previous commit. 
+* List your last 3 commits with this command:  git log -3 | cat
+ * The “git log” lists your commits. The “-3” tells git to only list the last three. the “ | cat” tells git not to use vi to scroll through the commits. Instead, it will just spit them all out relatively instantaneously.
+ * If you want to set | cat as the default so you don’t have to type it all the time, use this command to set the global:  git config --global core.pager cat
+* There are a lot of global defaults you can set in git. Check the documentation on how to do this.
+* Type:  git revert \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# --no-edit
+ * The \# represents the commit number from your log that you’d like to get rid of. The “--no-edit” spares us going into vim to edit a message. You may wish to set a different text editor for such things, or learn vim. -_-
+ * You don’t have to put the full \#. The editor will know what to do if you give the first few numbers.
+ * If you are using cmdr, you can select the text with your left mouse button and dragging. Then, if you right-click, the text will insert automatically wherever your cursor is. You don’t use ctrl+c and ctrl+v in cmder.
+ * If you want, you can check your log for the revert commit and actually revert the revert.
+* Merge your changes with master
+ * git checkout master
+ * git merge demo
+
+Note that there is a command for simply rolling back the last commit, but this example showed other things that are also important.
+
+#### Deleting Files
+
+Delting files doesn't work the same way in git as adding or changing them does. Removing files and folders can use very different commands.
+
+* Time to get rid of our demo folder. We don’t want that hanging around in the repo.
+* Type: git checkout demo
+* Go into windows explorer and delete the demo folder.
+* Type: git status
+ * Git should tell you that a file has been deleted
+* Type: git rm demo_yourname -r
+ * Where “demo_yourname” is the name of your demo folder.
+ * This stages the folder for deletion
+ * There are lots of shortcuts for adding and removing files. Check out the [git documentation](https://git-scm.com/documentation) for more info.
+* Commit and push. Now you can see the difference between master and demo. 
