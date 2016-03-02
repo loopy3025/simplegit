@@ -8,7 +8,7 @@ Welcome to the inaugural post of this blog. Time will tell if I post more. This 
 
 I know for a fact that there are other tutorials which are both more concise and succinct. The point here isn't to be concise or succinct. The point is to slowly step through some very simple git processes in order to gain a rudimentary understanding in git.
 
-####Installing git
+#### Installing git
 
 You can download git piecemeal or you can download a third party command line tool with git included. 
 
@@ -20,7 +20,7 @@ cmder:
 
 With cmder, be sure to include git in the package by selecting the full install. For both git and cmder, there are extensive documentation you can use to find commands you need to do your work. There are GUI options for git. I do not use these, so their use would have to be self-taught for now.
 
-####Initiating a New Local git Repository
+#### Initiating a New Local git Repository
 
 git is set up in repositories. Whether these repositories are local or remote is immaterial. You can do the same things in any location as long as you have the software to manage it. A repository contains all the content for your project. Sometimes that project is just a single feature and other times it is an entire site or application. In our case, we’re talking about sites.
 
@@ -35,28 +35,29 @@ git is set up in repositories. Whether these repositories are local or remote is
 * If this is a new repository for a new project, you may want to consider a .gitignore file. This file will tell git to ignore certain files or folders in a project. Good examples of a files to ignore are .htaccess or settings.php. Basically, anything pertaining to a specific server should be avoided. For Drupal sites, it also may be a good idea to ignore entire folders, such as those devoted to content (documents and such). [https://git-scm.com/docs/gitignore](https://git-scm.com/docs/gitignore)
 * Type:  git status
 * You should get a response telling you that you’re on the master branch. We’ll discuss Branches later.
-
-####Connecting To a Remote Repository
 
-Type: git remote
-Nothing should show.
-Get the URL for your remote repository. A vendor should supply any URLs you need and also provide you with credentials for accessing the files. On Github, a repository’s URL can be found on the main repo page. 
-Example:  [https://github.com/ny/opwdd.ny.gov](https://github.com/ny/opwdd.ny.gov)
-To create a connection to the example Repo, we would type:  
-git remote github https://github.com/ny/opwdd.ny.gov.git
-The “github” portion of the command just gives a name to this connection, which can be used any time after it has been created. We could have called it “Marvin” or “poop” if we wanted.
-Type: git remote
-You should see the remote connection in there. This means a repo can have multiple remote connections. This allows you to disseminate your repo anywhere you want, whether with Github, Acquia, or anywhre that accepts git repos.
-Type:  git pull github master
-This tells git to pull all the files at your github location, but from the branch called “master”.
-You will be prompted for your username and password. 
-It may take some time to download the files
-When it is done, you may notice in cmder that it now tells you which branch you’re working from (in this case, master).
-Type:  dir
-You should see a listing of all the files that were in the repository’s main branch.
-Feel free to go in through windows explorer and look at the .gitignore file if one exists to see what that looks like.
+#### Connecting To a Remote Repository
 
-Working With Git 
+* Type: git remote
+  * Nothing should show.
+* Get the URL for your remote repository. A vendor should supply any URLs you need and also provide you with credentials for accessing the files. On Github, a repository’s URL can be found on the main repo page. 
+  * Example:  [https://github.com/ny/opwdd.ny.gov](https://github.com/ny/opwdd.ny.gov)
+* To create a connection to the example Repo, we would type:  
+* git remote github https://github.com/ny/opwdd.ny.gov.git
+* The “github” portion of the command just gives a name to this connection, which can be used any time after it has been created. We could have called it “Marvin” or “poop” if we wanted.
+* Type: git remote
+* You should see the remote connection in there. This means a repo can have multiple remote connections. This allows you to disseminate your repo anywhere you want, whether with Github, Acquia, or anywhre that accepts git repos.
+* Type:  git pull github master
+  * This tells git to pull all the files at your github location, but from the branch called “master”.
+  * You will be prompted for your username and password. 
+  * It may take some time to download the files
+  * When it is done, you may notice in cmder that it now tells you which branch you’re working from (in this case, master).
+* Type:  dir
+  * You should see a listing of all the files that were in the repository’s main branch.
+* Feel free to go in through windows explorer and look at the .gitignore file if one exists to see what that looks like.
+
+#### Working With Git 
+
 Go back to your command line interface. Type: git checkout -b demo
 The “-b” is a parameter. Most commands have different parameters which are detailed in the git documentation.
 Cmder will show you are in a new branch. You can also type git status
