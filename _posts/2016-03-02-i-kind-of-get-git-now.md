@@ -58,47 +58,47 @@ git is set up in repositories. Whether these repositories are local or remote is
 This section describes making some simple changes to a file and how branches manage these changes.
 
 * Go back to your command line interface. Type: git checkout -b demo
- * The “-b” is a parameter. Most commands have different parameters which are detailed in the git documentation.
- * Cmder will show you are in a new branch. You can also type git status
+  * The “-b” is a parameter. Most commands have different parameters which are detailed in the git documentation.
+  * Cmder will show you are in a new branch. You can also type git status
 * Completely close out your command window and then open a new command window. Navigate to your repo’s folder.
- * We did this so you can note that the branch you are in persists even when the window is closed. Almost everything you do is a state that is saved somewhere in the git directory.
+  * We did this so you can note that the branch you are in persists even when the window is closed. Almost everything you do is a state that is saved somewhere in the git directory.
 * Navigate to your folder in Windows Explorer and create a new folder called “demo_yourname” where “yourname” is your first name. Then, inside that folder, create a text file called “demo.txt”
 * In that text file, write “Hello world!”
 * In your command line, type:  git status
- * You will note that your new folder has been detected by git as something with changes. These files are NOT being tracked as an actual change, though. It will not automatically do this.
-`* In this way, you can ignore changes in other parts of your project while focusing on changes in other sections.
+  * You will note that your new folder has been detected by git as something with changes. These files are NOT being tracked as an actual change, though. It will not automatically do this.
+  * In this way, you can ignore changes in other parts of your project while focusing on changes in other sections.
 * Type:  git diff HEAD
- * You will see no changes listed.
+  * You will see no changes listed.
 * Type:  git add .
- * The “.” tells git to add all changes. You could have also typed:  git add demo_yourname
+  * The “.” tells git to add all changes. You could have also typed:  git add demo_yourname
 * In cmder, note that the branch name has turned red, denoting that there are changes on the branch. git status will tell you what has changed.
 * Type:  git diff HEAD
- * You will see your changes printed and it will look like a patch file
- * It is actually possible to use the diff command to output actual patch files using different options
+  * You will see your changes printed and it will look like a patch file
+  * It is actually possible to use the diff command to output actual patch files using different options
 * Type:  git commit -m “Initial creation of my demo file.”
- * The text inside the quotes can be anything you want describing the work you did.
+  * The text inside the quotes can be anything you want describing the work you did.
 * Type: git checkout master
- * You are now on the master branch
+  * You are now on the master branch
 * Type:  dir
- * The /demo_yourname folder should be gone.  This is because we have switched to the master branch which has none of the changes we made on the demo branch.
+  * The /demo_yourname folder should be gone.  This is because we have switched to the master branch which has none of the changes we made on the demo branch.
 * Type: git checkout demo
- * The /demo_yourname folder should have returned.
+  * The /demo_yourname folder should have returned.
 * Type: git checkout master one more time.
 * Type: git merge demo
- * This takes all the committed changes from your demo branch and makes them to the files on the master branch.
+  * This takes all the committed changes from your demo branch and makes them to the files on the master branch.
 * Type:  dir
- * You should see your files now. Master and demo should now be identical.
+  * You should see your files now. Master and demo should now be identical.
 * Type: git checkout demo
 * In your demo.txt file, add another line, perhaps “Hello to you too!”
 * In your command line, type these commands, noting what happens each time:
- * git status 
- * git add .
- * git diff HEAD
- * git commit -m “Added a line to the demo.txt”
- * You wouldn’t normally commit after every little change, of course. This is just for demonstration.
- * git checkout master
+  * git status 
+  * git add .
+  * git diff HEAD
+  * git commit -m “Added a line to the demo.txt”
+  * You wouldn’t normally commit after every little change, of course. This is just for demonstration.
+  * git checkout master
   * Note that, in your text editor, the line you added to demo.txt has probably been removed!
- * git merge demo
+  * git merge demo
   * And it probably has now returned, because you merged the changes from the demo branch.
 
 #### Working with the Remote
@@ -108,16 +108,16 @@ You’ll eventually want to push your changes to a remote repository, whether it
 * Navigate to the remote repository on the Github website. You will see that your demo folder is not up there. Example: https://github.com/ny/opwdd.ny.gov 
 * In git, checkout the demo branch:  git checkout demo
 * Type:  git push github HEAD
- * This will push all the changes in your current branch whatever it is.
- * You could push a specific branch by putting that branch’s name in place of “HEAD”.
+  * This will push all the changes in your current branch whatever it is.
+  * You could push a specific branch by putting that branch’s name in place of “HEAD”.
 * Check the remote repository again in your browser. 
 * Click the "branches" drop-down and select the demo branch.
 * You will see the files listed change, adding your demo folder. If you switch back to master, you will not see it because you did not push master.
 * In git, switch to the master branch:   git checkout master
 * Type:  git push
- * You will get an error. 
+  * You will get an error. 
 * Type the command git suggests: git push --set-upstream github master
- * You will be asked for your credentials.
+  * You will be asked for your credentials.
 * Now refresh the master branch list in github. Your demo folder should be visible.
 
 #### Rolling Back
@@ -125,24 +125,24 @@ You’ll eventually want to push your changes to a remote repository, whether it
 There are lots of ways to roll back changes using github. These methods range from the simple to the soul-crushingly complicated. We can focus on a couple of them here, but the [git documentation](https://git-scm.com/documentation) and [stack overflow](http://stackoverflow.com/questions/tagged/git) are a big help in case you ever need to do anything very difficult.
 
 * In command line, checkout demo again and commit another change with a third line to your document, “Goodbye!” Make the commit message “Said goodbye.”
- * git checkout demo
- * Add line to document
- * git add .
- * git commit -m “Said goodbye.”
- * git push github demo
+  * git checkout demo
+  * Add line to document
+  * git add .
+  * git commit -m “Said goodbye.”
+  * git push github demo
 * But wait! You didn’t want to say goodbye. You need to roll back to a previous commit. 
 * List your last 3 commits with this command:  git log \-3 \| cat
- * The “git log” lists your commits. The “-3” tells git to only list the last three. the “ \| cat” tells git not to use vi to scroll through the commits. Instead, it will just spit them all out relatively instantaneously.
- * If you want to set \| cat as the default so you don’t have to type it all the time, use this command to set the global:  git config \-\-global core.pager cat
+  * The “git log” lists your commits. The “-3” tells git to only list the last three. the “ \| cat” tells git not to use vi to scroll through the commits. Instead, it will just spit them all out relatively instantaneously.
+  * If you want to set \| cat as the default so you don’t have to type it all the time, use this command to set the global:  git config \-\-global core.pager cat
 * There are a lot of global defaults you can set in git. Check the documentation on how to do this.
 * Type:  git revert \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# \-\-no-edit
- * The \# represents the commit number from your log that you’d like to get rid of. The “\-\-no-edit” spares us going into vim to edit a message. You may wish to set a different text editor for such things, or learn vim. \-\_\-
- * You don’t have to put the full \#. The editor will know what to do if you give the first few numbers.
- * If you are using cmdr, you can select the text with your left mouse button and dragging. Then, if you right-click, the text will insert automatically wherever your cursor is. You don’t use ctrl+c and ctrl+v in cmder.
- * If you want, you can check your log for the revert commit and actually revert the revert.
+  * The \# represents the commit number from your log that you’d like to get rid of. The “\-\-no-edit” spares us going into vim to edit a message. You may wish to set a different text editor for such things, or learn vim. \-\_\-
+  * You don’t have to put the full \#. The editor will know what to do if you give the first few numbers.
+  * If you are using cmdr, you can select the text with your left mouse button and dragging. Then, if you right-click, the text will insert automatically wherever your cursor is. You don’t use ctrl+c and ctrl+v in cmder.
+  * If you want, you can check your log for the revert commit and actually revert the revert.
 * Merge your changes with master
- * git checkout master
- * git merge demo
+  * git checkout master
+  * git merge demo
 
 Note that there is a command for simply rolling back the last commit, but this example showed other things that are also important.
 
@@ -154,9 +154,9 @@ Delting files doesn't work the same way in git as adding or changing them does. 
 * Type: git checkout demo
 * Go into windows explorer and delete the demo folder.
 * Type: git status
- * Git should tell you that a file has been deleted
+  * Git should tell you that a file has been deleted
 * Type: git rm demo_yourname -r
- * Where “demo_yourname” is the name of your demo folder.
- * This stages the folder for deletion
- * There are lots of shortcuts for adding and removing files. Check out the [git documentation](https://git-scm.com/documentation) for more info.
+  * Where “demo_yourname” is the name of your demo folder.
+  * This stages the folder for deletion
+  * There are lots of shortcuts for adding and removing files. Check out the [git documentation](https://git-scm.com/documentation) for more info.
 * Commit and push. Now you can see the difference between master and demo. 
