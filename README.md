@@ -1,2 +1,2 @@
-# simplegit
-Introductory Git Made Simple
+# Endless Loopy
+Adam's git pages site.
