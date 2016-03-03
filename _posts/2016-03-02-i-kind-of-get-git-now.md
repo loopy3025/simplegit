@@ -8,7 +8,7 @@ Welcome to the inaugural post of this blog. Time will tell if I post more. This 
 
 I know for a fact that there are other tutorials which are both more concise and succinct. The point here isn't to be concise or succinct. The point is to slowly step through some very simple git processes in order to gain a rudimentary understanding in git.
 
-#### Installing git
+#### Installing git 
 
 You can download git piecemeal or you can download a third party command line tool with git included. 
 
@@ -39,7 +39,7 @@ git is set up in repositories. Whether these repositories are local or remote is
 * Type: **git remote**
   * Nothing should show.
 * Get the URL for your remote repository. A vendor should supply any URLs you need and also provide you with credentials for accessing the files. On Github, a repository’s URL can be found on the main repo page. 
-  * ![Repository url](images/git-demo-01.png)  
+  * ![Repository url](/images/posts/git-demo-01.png)  
 * To create a connection to the example Repo, we would type: **git remote github \<your repo url\>**
  * The “github” portion of the command just gives a name to this connection, which can be used any time after it has been created. We could have called it “Marvin” or “poop” if we wanted.
 * Type: **git remote**
