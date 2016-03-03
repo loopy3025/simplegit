@@ -8,7 +8,7 @@ Welcome to the inaugural post of this blog. Time will tell if I post more. This 
 
 I know for a fact that there are other tutorials which are both more concise and succinct. The point here isn't to be concise or succinct. The point is to slowly step through some very simple git processes in order to gain a rudimentary understanding in git.
 
-#### Installing git
+#### Installing git 
 
 You can download git piecemeal or you can download a third party command line tool with git included. 
 
