@@ -40,7 +40,7 @@ git is set up in repositories. Whether these repositories are local or remote is
   * Nothing should show.
 * Get the URL for your remote repository. A vendor should supply any URLs you need and also provide you with credentials for accessing the files. On Github, a repository’s URL can be found on the main repo page. 
   * ![Repository url](/images/posts/git-demo-01.png)  
-* To create a connection to the example Repo, we would type: **git remote github \<your repo url\>**
+* To create a connection to the example Repo, we would type: **git remote add github \<your repo url\>**
  * The “github” portion of the command just gives a name to this connection, which can be used any time after it has been created. We could have called it “Marvin” or “poop” if we wanted.
 * Type: **git remote**
  * You should see the remote connection in there. This means a repo can have multiple remote connections. This allows you to disseminate your repo anywhere you want, whether with Github, Acquia, or anywhre that accepts git repos.
